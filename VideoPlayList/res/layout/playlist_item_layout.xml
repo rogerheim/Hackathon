@@ -2,15 +2,22 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent"
-              android:layout_height="fill_parent">
+              android:layout_height="fill_parent"
+              android:padding="5dp"
+
+        android:background="@drawable/video_list_item_background"
+        >
 
     <!-- Simple playlist item layout for now -->
     <!-- Image to left; 2-line title to right -->
     
     <ImageView
         android:id="@+id/video_thumbnail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90px"
+        android:layout_height="68px"
+        android:scaleType="fitCenter"
+        android:background="@color/DarkSlateGray"
+        android:layout_marginRight="8dp"
         />
 
     <TextView
@@ -18,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_toRightOf="@id/video_thumbnail"
+        android:textColor="@color/Black"
         android:text="Video Title Here"
         />
 
@@ -28,6 +36,7 @@
         android:layout_toRightOf="@id/video_thumbnail"
         android:layout_below="@id/video_title"
         android:layout_alignLeft="@id/video_title"
+        android:textColor="@color/Black"
         android:text="Video Title Line 2 Here"
         />
     

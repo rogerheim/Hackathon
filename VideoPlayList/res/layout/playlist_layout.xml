@@ -4,6 +4,7 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:orientation="vertical"
+              android:background="@drawable/movie_reel"
 
         >
 
@@ -11,8 +12,17 @@
     <LinearLayout
         android:id="@+id/playlist_header"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:background="@color/Navy"
         >
+
+        <TextView
+            android:id="@+id/playlist_anchor_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hacker's Video Jukebox"
+            android:textColor="@color/GhostWhite"
+            />
 
 
 
@@ -24,6 +34,8 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:choiceMode="singleChoice"
+        android:cacheColorHint="#00000000"
         />
 
     <!-- This view is displayed if the list contains no videos -->
