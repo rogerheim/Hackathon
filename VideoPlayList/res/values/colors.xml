@@ -1,0 +1,37 @@
+<resources>
+    <color name="White">#FFFFFF</color>
+    <color name="White25Pct">#3FFFFFFF</color>
+    <color name="White50Pct">#7FFFFFFF</color>
+    <color name="White75Pct">#BFFFFFFF</color>
+
+    <color name="Blue">#0000FF</color>
+
+    <color name="DeepSkyBlue">#00BFFF</color>
+    <color name="DeepSkyBlue25Pct">#3F00BFBF</color>
+    <color name="DeepSkyBlue50Pct">#7F00BFBF</color>
+    <color name="DeepSkyBlue75Pct">#BF00BFBF</color>
+
+    <color name="DodgerBlue">#1e90ff</color>
+    <color name="Red">#FF0000</color>
+    <color name="OrangeRed">#ff4500</color>
+    <color name="Black">#000000</color>
+    <color name="Black25Pct">#3F000000</color>
+    <color name="Black50Pct">#7F000000</color>
+    <color name="Black75Pct">#BF000000</color>
+
+    <color name="LightGray">#D3D3D3</color>
+    <color name="LightGray25Pct">#3FD3D3D3</color>
+    <color name="LightGray50Pct">#7FD3D3D3</color>
+    <color name="LightGray75Pct">#BFD3D3D3</color>
+
+    <color name="Gray">#BEBEBE</color>
+    <color name="DimGray">#696969</color>
+
+    <color name="Snow">#FFFAFA</color>
+    <color name="GhostWhite">#F8F8FF</color>
+    <color name="DarkSlateGray">#2F4F4F</color>
+    <color name="DarkSlateGray25Pct">#3F2F4F4F</color>
+    <color name="DarkSlateGray50Pct">#7F2F4F4F</color>
+    <color name="DarkSlateGray75Pct">#Bf2F4F4F</color>
+
+</resources>

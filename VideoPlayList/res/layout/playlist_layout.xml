@@ -7,6 +7,7 @@
 
         >
 
+    <!-- This will contain a refresh and a search button -->
     <LinearLayout
         android:id="@+id/playlist_header"
         android:layout_width="fill_parent"
@@ -17,6 +18,7 @@
 
     </LinearLayout>
 
+    <!-- This contains the video playlist -->
     <ListView
         android:id="@android:id/list"
         android:layout_width="fill_parent"
@@ -24,6 +26,27 @@
         android:layout_weight="1"
         />
 
+    <!-- This view is displayed if the list contains no videos -->
+
+    <LinearLayout
+        android:id="@android:id/empty"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/playlist_empty_message"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:background="@color/White"
+            android:text="No Videos Placeholder Message"
+            />
+
+    </LinearLayout>
+
+    <!-- This will contain a camera button -->
     <LinearLayout
         android:id="@+id/playlist_footer"
         android:layout_width="fill_parent"
