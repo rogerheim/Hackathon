@@ -18,9 +18,12 @@
 
         <TextView
             android:id="@+id/playlist_anchor_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5dp"
+            android:gravity="center_vertical"
             android:text="Hacker's Video Jukebox"
+            android:textSize="20sp"
             android:textColor="@color/GhostWhite"
             />
 

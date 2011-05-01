@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 public class StartActivity extends ListActivity {
 
+    QuickActionMenuManager qaMgr = null;
     
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +29,18 @@ public class StartActivity extends ListActivity {
         setContentView(R.layout.playlist_layout);
     }
 
+    @Override
+    protected void onPause() {
+        qaMgr.destroyQuickActionMenu();
+        super.onPause();
+    }
 
+    @Override
+    protected void onResume() {
+        qaMgr = new QuickActionMenuManager(findViewById(R.id.playlist_anchor_text));
+        qaMgr.initializeQuickActionMenu();
+        super.onResume();
+    }
 
     class VideoAdapter extends BaseAdapter {
 
