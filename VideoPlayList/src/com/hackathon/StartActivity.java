@@ -5,6 +5,7 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,23 +40,44 @@ public class StartActivity extends ListActivity {
 
         Command searchGoCommand = new Command() {
             @Override
-            public void execute() {
+            public void execute(View view, Object data) {
                 qaMgr.destroyQuickActionMenu();
-                Toast.makeText(StartActivity.this, "Search GO", Toast.LENGTH_SHORT).show();
+                Toast.makeText(StartActivity.this, "Search:" + data.toString(), Toast.LENGTH_SHORT).show();
+                if (!TextUtils.isEmpty(data.toString())) {
+                    new DoYouTubeSearch(StartActivity.this, data.toString()).execute();
+                }
             }
         };
         Command searchCancelCommand = new Command() {
             @Override
-            public void execute() {
+            public void execute(View view, Object data) {
                 qaMgr.destroyQuickActionMenu();
-                Toast.makeText(StartActivity.this, "Nevermine!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(StartActivity.this, "Nevermind!", Toast.LENGTH_SHORT).show();
             }
         };
-        qaMgr.initializeQuickActionMenu(new OnViewClickListenerWrapper(searchGoCommand), new OnViewClickListenerWrapper(searchCancelCommand));
+        Command refreshCommand = new Command() {
+            @Override
+            public void execute(View view, Object data) {
+                qaMgr.destroyQuickActionMenu();
+                Toast.makeText(StartActivity.this, "Refresh", Toast.LENGTH_SHORT).show();
+            }
+        };
+
+        qaMgr.initializeQuickActionMenu(new OnViewClickListenerWrapper(searchGoCommand),
+                new OnViewClickListenerWrapper(searchCancelCommand),
+                new OnViewClickListenerWrapper(refreshCommand));
         super.onResume();
     }
 
     class DoYouTubeSearch extends AsyncTask<Void, Void, Void> {
+
+        private Context ctx;
+        private String searchString;
+
+        DoYouTubeSearch(Context ctx, String searchString) {
+            this.ctx = ctx;
+            this.searchString = searchString;
+        }
 
         @Override
         protected void onPreExecute() {
