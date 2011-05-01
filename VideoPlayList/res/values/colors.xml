@@ -35,4 +35,7 @@
     <color name="DarkSlateGray75Pct">#Bf2F4F4F</color>
 
     <color name="Navy">#000080</color>
+    <color name="Navy25Pct">#3F000080</color>
+    <color name="Navy50Pct">#7F000080</color>
+    <color name="Navy75Pct">#BF000080</color>
 </resources>
