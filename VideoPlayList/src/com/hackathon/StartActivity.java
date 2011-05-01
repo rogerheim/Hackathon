@@ -3,15 +3,13 @@ package com.hackathon;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.VideoView;
+import android.widget.*;
 
 import java.util.ArrayList;
 
@@ -38,8 +36,41 @@ public class StartActivity extends ListActivity {
     @Override
     protected void onResume() {
         qaMgr = new QuickActionMenuManager(findViewById(R.id.playlist_anchor_text));
-        qaMgr.initializeQuickActionMenu();
+
+        Command searchGoCommand = new Command() {
+            @Override
+            public void execute() {
+                qaMgr.destroyQuickActionMenu();
+                Toast.makeText(StartActivity.this, "Search GO", Toast.LENGTH_SHORT).show();
+            }
+        };
+        Command searchCancelCommand = new Command() {
+            @Override
+            public void execute() {
+                qaMgr.destroyQuickActionMenu();
+                Toast.makeText(StartActivity.this, "Nevermine!", Toast.LENGTH_SHORT).show();
+            }
+        };
+        qaMgr.initializeQuickActionMenu(new OnViewClickListenerWrapper(searchGoCommand), new OnViewClickListenerWrapper(searchCancelCommand));
         super.onResume();
+    }
+
+    class DoYouTubeSearch extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();    //To change body of overridden methods use File | Settings | File Templates.
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);    //To change body of overridden methods use File | Settings | File Templates.
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            return null;  //To change body of implemented methods use File | Settings | File Templates.
+        }
     }
 
     class VideoAdapter extends BaseAdapter {

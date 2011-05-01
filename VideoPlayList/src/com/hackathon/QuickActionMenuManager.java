@@ -16,30 +16,18 @@ public class QuickActionMenuManager {
         this.anchorView = anchorView;
     }
 
-    public void initializeQuickActionMenu() {
+    public void initializeQuickActionMenu(final OnViewClickListenerWrapper searchGoCommandListener, final OnViewClickListenerWrapper searchCancelCommandListener) {
         qam = new QuickActionMenu(anchorView);
         qam.addActionItem(new ActionItem("Search", null, new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: start up search activity
+                
                 LayoutInflater inflater = (LayoutInflater) anchorView.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 vPopupWindow = new VPopupWindow(anchorView);
                 View searchRoot = (ViewGroup) inflater.inflate(R.layout.search_layout, null);
                 vPopupWindow.setContentView(searchRoot);
-                ((Button)searchRoot.findViewById(R.id.youtube_search_go)).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        vPopupWindow.dismiss();
-                        Toast.makeText(anchorView.getContext(), "Search GO", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                ((Button)searchRoot.findViewById(R.id.youtube_search_cancel)).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        vPopupWindow.dismiss();
-                        Toast.makeText(anchorView.getContext(), "Nevermind!", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                searchRoot.findViewById(R.id.youtube_search_go).setOnClickListener(searchGoCommandListener);
+                searchRoot.findViewById(R.id.youtube_search_cancel).setOnClickListener(searchCancelCommandListener);
 
 
                 vPopupWindow.setWindowAnimationStyle(QuickActionMenu.ANIM_AUTO);
@@ -70,7 +58,7 @@ public class QuickActionMenuManager {
         }
         if (qam != null) {
             qam.dismiss();
-            anchorView = null;
+//            anchorView = null;
         }
     }
 }
